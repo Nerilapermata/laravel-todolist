@@ -7,6 +7,7 @@ use App\Http\Controllers\LoanCalculatorController;
 use App\Models\Task;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskStatusController;
+use App\Http\Controllers\BMIController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +29,6 @@ Route::post('/loan', [LoanCalculatorController::class, 'calculate']);
 //Task
 Route::post('/tasks/{id}/toggle', [TaskStatusController::class, 'toggle'])->name('tasks.toggle');
 
+//BMI
+Route::get('/bmi', [BMIController::class, 'index']);
+Route::post('/bmi', [BMIController::class, 'calculate']);

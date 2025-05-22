@@ -1,25 +1,10 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests;
 
-use Tests\TestCase;
-use App\Models\Task;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
-class TaskModelTest extends TestCase
+abstract class TestCase extends BaseTestCase
 {
-    use RefreshDatabase;
-
-    public function test_default_is_done_is_false()
-    {
-        $task = Task::create(['name' => 'Baru']);
-        $this->assertFalse($task->is_done);
-    }
-
-    public function test_can_update_is_done()
-    {
-        $task = Task::create(['name' => 'Tes']);
-        $task->update(['is_done' => true]);
-        $this->assertTrue($task->fresh()->is_done);
-    }
+    //
 }
